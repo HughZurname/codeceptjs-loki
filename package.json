@@ -1,0 +1,30 @@
+{
+  "name": "codeceptjs-loki",
+  "version": "0.0.1",
+  "description": "Codecept Helper with in memory databse (provided by loki.js) for data driven testing and result capturing.",
+  "main": "codecept-loki.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HughZurname/codeceptjs-loki.git"
+  },
+  "keywords": [
+    "codeceptjs",
+    "lokijs",
+    "test",
+    "database",
+    "seed"
+  ],
+  "author": "Craig de Gouveia",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/HughZurname/codeceptjs-loki/issues"
+  },
+  "homepage": "https://github.com/HughZurname/codeceptjs-loki#readme",
+  "dependencies": {
+    "lokijs": "^1.5.0",
+    "requireg": "^0.1.6"
+  }
+}
