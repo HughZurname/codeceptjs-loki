@@ -1,5 +1,5 @@
 # codeceptjs-loki
-Codecept Helper with in memory databse (provided by [loki.js](http://lokijs.org/)) for data driven testing and result capturing.
+[Codecept](http://codecept.io/) Helper with in memory databse (provided by [loki.js](http://lokijs.org/)) for data driven testing and result capturing. An example scenario can be found [below](#Example-Scenario)
 
 **Parameters**
 
@@ -108,3 +108,60 @@ Imports data from a directory into a collection. Uses file names to create a col
 **Parameters**
 
 -   `dir` **string** takes a directory as a string.
+
+##Example Scenario
+
+```javascript
+Feature("Order - User Details");
+
+let user, claimId;
+
+Scenario("Enter user Details", function* (I) {
+    
+    //Retrieving some user form data that was seeded before the test execution.
+    //The arguments are the document store being queried and the query object itself.
+    //The first matching value is selected, but this can just as easily be used to randomise the selected user.
+    user = yield I.findOne("users", {email: "someguy@email.com"});
+
+    //testId is generated elsewhere per run
+    I.fillField("orderNumber", testId);
+    I.dontSee("Document number is required");
+
+    I.fillField("firstName", user.firstname);
+    I.dontSee("First name is required");
+
+    I.fillField("surname", user.surname);
+    I.dontSee("Surname is required");
+
+    I.fillField("addressLine1", user.address1);
+    I.dontSee("Address1 is required");
+
+    I.fillField("postCode", user.postcode);
+    I.dontSee("Postcode is required");
+
+    I.fillField("phoneNumber", user.number);
+    I.dontSee("Telephone number is required");
+
+    I.fillField("email", user.email);
+    I.dontSee("Must be a valid email");
+});
+
+Scenario("Save & Continue",  function* (I) {
+    I.click("Save & Continue");
+
+    //Example custom helper function to grab the "order id" from the url.
+    claimId = yield I.grabUrlPart(4);
+});
+
+AfterSuite((I) => {
+    //Create a new document store for orders before inserting relevant data from the test above.
+    //This becomes queryable in later scenarios/features, like users was above. Thus allowing validation against known values while still allowing the use dynamic data to drive testing.
+    I.addCollection("orders");
+    I.insert("orders", {
+        orderId: claimId,
+        orderNumber: testId,
+        email: user.email,
+        fullName: `${user.firstname} ${user.surname}`,
+    });
+});
+```
