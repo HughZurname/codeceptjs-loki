@@ -109,7 +109,7 @@ Imports data from a directory into a collection. Uses file names to create a col
 
 -   `dir` **string** takes a directory as a string.
 
-##Example Scenario
+## Example Scenario
 
 ```javascript
 Feature("Order - User Details");
