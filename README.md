@@ -1,5 +1,5 @@
 # codeceptjs-loki
-[Codecept](http://codecept.io/) Helper with in memory databse (provided by [loki.js](http://lokijs.org/)) for data driven testing and result capturing. An example scenario can be found [below](#Example-Scenario)
+[Codecept](http://codecept.io/) Helper with in memory databse (provided by [loki.js](http://lokijs.org/)) for data driven testing and result capturing. An example scenario can be found [below](#Example)
 
 **Parameters**
 
@@ -109,7 +109,7 @@ Imports data from a directory into a collection. Uses file names to create a col
 
 -   `dir` **string** takes a directory as a string.
 
-## Example Scenario
+## Example
 
 ```javascript
 Feature("Order - User Details");
