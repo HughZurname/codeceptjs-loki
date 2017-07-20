@@ -17,7 +17,7 @@ exports.config = {
     /*...some config*/
 }
 ```
-**or to 'codecept.json' with:**
+**or to `codecept.json` with:**
 ```json
 {
   "helpers": {
