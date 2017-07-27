@@ -1,6 +1,6 @@
 {
   "name": "codeceptjs-loki",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Codecept Helper with in memory databse (provided by loki.js) for data driven testing and result capturing.",
   "main": "index.js",
   "scripts": {
