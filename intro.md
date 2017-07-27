@@ -1,0 +1,1 @@
+[Codecept](http://codecept.io/) Helper with in memory databse (provided by [loki.js](http://lokijs.org/)) for data driven testing and result capturing. An example scenario can be found [below](#example)

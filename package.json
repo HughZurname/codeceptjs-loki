@@ -2,9 +2,9 @@
   "name": "codeceptjs-loki",
   "version": "0.0.4",
   "description": "Codecept Helper with in memory databse (provided by loki.js) for data driven testing and result capturing.",
-  "main": "codecept-loki.js",
+  "main": "index.js",
   "scripts": {
-    "test": "test"
+    "docs": "documentation build --config docs.yml -f md -o README.md"
   },
   "repository": {
     "type": "git",
@@ -26,5 +26,8 @@
   "dependencies": {
     "lokijs": "^1.5.0",
     "requireg": "^0.1.6"
+  },
+  "devDependencies": {
+    "documentation": "^4.0.0-rc.1"
   }
 }

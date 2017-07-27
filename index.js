@@ -1,4 +1,3 @@
-const requireg = require('requireg');
 const path = require('path');
 const fs = require('fs');
 const loki = require('lokijs');
@@ -28,27 +27,6 @@ class Loki extends Helper {
     Object.assign(this.options, config);
   }
 
-  static _checkRequirements() {
-    try {
-      requireg("lokijs");
-    } catch (e) {
-      return ["lokijs"];
-    }
-  }
-
-  static _config() {
-    return [{
-      name: 'dbName',
-      message: "What would you like to name the database?",
-      default: 'db.json'
-    }, {
-      name: 'dbSeed',
-      type: "confirm",
-      message: 'Would you like to enable databse seeding?',
-      default: true
-    }];
-  }
-
   _init() {
     //set global directory
     this.dir = global.codecept_dir;
@@ -62,14 +40,8 @@ class Loki extends Helper {
     this.options.dbSeed && this._loadSeedData();
   }
 
-  _beforeSuite() {
-  }
-
   _afterSuite() {
     this._stopDb();
-  }
-
-  _startDb() {
   }
 
   _stopDb() {
@@ -107,7 +79,7 @@ class Loki extends Helper {
    *
    * Inserts records from the supplied data to a matching collection.
    * @param {string} collection name of desired collection.
-   * @param {Object[]} data takes an array of objects as records for the destination collection.
+   * @param {Array}data takes an array of objects as records for the destination collection.
    */
   insert(collection, data) {
     const c = this.findCollection(collection);
@@ -129,7 +101,7 @@ class Loki extends Helper {
    * @example
    * // Searches for a user with an email of "someone@email.com"
    * I.find("Users",{email: "someone@email.com"})
-   * @returns {Object[]} Returns an array of objects that match.
+   * @returns {Array}Returns an array of objects that match.
    */
   find(collection, query) {
     const c = this.findCollection(collection);
